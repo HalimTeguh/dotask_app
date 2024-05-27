@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 class TaskTile extends StatefulWidget {
   const TaskTile(
-      {super.key, required this.status, required this.title, required this.deleteTask});
+      {super.key, required this.status, required this.title, required this.deleteTask, required this.onChanged});
+      
   final bool? status;
   final String title;
   final VoidCallback deleteTask;
+  final Function(bool?)? onChanged;
 
   @override
   State<TaskTile> createState() => _TaskTileState();
@@ -24,6 +26,7 @@ class _TaskTileState extends State<TaskTile> {
     setState(() {
       checkboxStatus = value;
     });
+    widget.onChanged?.call(value);
   }
 
   @override
