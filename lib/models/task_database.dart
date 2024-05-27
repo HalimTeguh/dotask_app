@@ -60,7 +60,6 @@ class TaskDatabase extends ChangeNotifier{
       // re-write from database
       await fetchTask();
     } else {
-      print("Error: failed to update the task");
     }
   }
 

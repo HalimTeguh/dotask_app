@@ -32,12 +32,12 @@ class _TaskTileState extends State<TaskTile> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 15),
-      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      margin: const EdgeInsets.only(bottom: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.surfaceContainer,
         borderRadius: BorderRadius.circular(12),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
               color: Colors.black12,
               offset: Offset(2, 2),
@@ -53,6 +53,7 @@ class _TaskTileState extends State<TaskTile> {
               // Leading (Checkbox)
               Checkbox(
                 activeColor: Theme.of(context).colorScheme.primary,
+                checkColor: Colors.white,
                 value: checkboxStatus,
                 onChanged: changeValue,
               ),
@@ -71,7 +72,7 @@ class _TaskTileState extends State<TaskTile> {
 
           // Trailing (delete button)
           Container(
-            padding: EdgeInsets.only(right: 5),
+            padding: const EdgeInsets.only(right: 5),
             child: IconButton(
               onPressed: widget.deleteTask,
               style: ButtonStyle(
@@ -79,7 +80,7 @@ class _TaskTileState extends State<TaskTile> {
                       Theme.of(context).colorScheme.errorContainer),
                   foregroundColor: MaterialStatePropertyAll(
                       Theme.of(context).colorScheme.error)),
-              icon: Icon(Icons.delete_outlined),
+              icon: const Icon(Icons.delete_outlined),
             ),
           ),
         ],

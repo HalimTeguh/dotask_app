@@ -20,7 +20,7 @@ class _DeleteAllDialogState extends State<DeleteDialog> {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
             child: Container(
-              padding: EdgeInsets.all(25),
+              padding: const EdgeInsets.all(25),
               height: 180,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -38,7 +38,7 @@ class _DeleteAllDialogState extends State<DeleteDialog> {
                           color: Theme.of(context).colorScheme.tertiary,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
 
@@ -48,7 +48,7 @@ class _DeleteAllDialogState extends State<DeleteDialog> {
                         style: TextStyle(
                           fontSize: 16,
                           color:
-                              Theme.of(context).colorScheme.tertiaryContainer,
+                              Theme.of(context).colorScheme.tertiary,
                         ),
                       ),
                     ],
@@ -68,7 +68,7 @@ class _DeleteAllDialogState extends State<DeleteDialog> {
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(12),
                               side: BorderSide(
-                                  color: Theme.of(context).colorScheme.primary,
+                                  color: Theme.of(context).colorScheme.tertiary,
                                   width: 2),
                             ),
                           ),
@@ -77,12 +77,12 @@ class _DeleteAllDialogState extends State<DeleteDialog> {
                           'Naah, just kidding',
                           style: TextStyle(
                             fontSize: 12,
-                            color: Theme.of(context).colorScheme.primary,
+                            color: Theme.of(context).colorScheme.tertiary,
                           ),
                         ),
                       ),
 
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
 
@@ -105,7 +105,7 @@ class _DeleteAllDialogState extends State<DeleteDialog> {
                           'Yeah, of course!',
                           style: TextStyle(
                             fontSize: 12,
-                            color: Theme.of(context).colorScheme.surface,
+                            color: Theme.of(context).colorScheme.onTertiary,
                           ),
                         ),
                       ),
@@ -114,6 +114,6 @@ class _DeleteAllDialogState extends State<DeleteDialog> {
                 ],
               ),
             ),
-          );;
+          );
   }
 }

@@ -2,7 +2,6 @@ import 'package:dotask_app/components/delete_dialog.dart';
 import 'package:dotask_app/components/task_tile.dart';
 import 'package:dotask_app/models/task_database.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 import '../components/input_task.dart';
@@ -22,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   ];
 
   TextEditingController taskController = TextEditingController();
+  FocusNode focusNode = FocusNode();
   bool? status = false;
 
   late int numAllTask;
@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
     context.read<TaskDatabase>().addTask(taskController.text);
     setState(() {
       taskController.clear();
+      FocusScope.of(context).unfocus();
     });
   }
 
@@ -43,11 +44,13 @@ class _HomePageState extends State<HomePage> {
   // update task
   void updateTask(int id, String newTask, bool newStatus) {
     context.read<TaskDatabase>().updateTask(id, newTask, newStatus);
+
     readTask();
   }
 
   // delete selected task
   void deleteSelectedTask(int id) {
+    FocusScope.of(context).unfocus();
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -67,6 +70,8 @@ class _HomePageState extends State<HomePage> {
 
   // delete all task
   void deleteAllTask() {
+    FocusScope.of(context).unfocus();
+
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -90,7 +95,6 @@ class _HomePageState extends State<HomePage> {
     taskController.addListener(() {
       setState(() {});
     });
-
     readTask();
   }
 
@@ -131,7 +135,7 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     children: [
                       // Header Row
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                       Row(
@@ -167,12 +171,12 @@ class _HomePageState extends State<HomePage> {
                               style: TextStyle(
                                 decoration: TextDecoration.underline,
                                 decorationColor:
-                                    Theme.of(context).colorScheme.primary,
+                                    Theme.of(context).colorScheme.tertiary,
                                 shadows: [
                                   Shadow(
                                     color:
-                                        Theme.of(context).colorScheme.primary,
-                                    offset: Offset(0, -2),
+                                        Theme.of(context).colorScheme.tertiary,
+                                    offset: const Offset(0, -2),
                                   )
                                 ],
                                 color: Colors.transparent,
@@ -181,7 +185,7 @@ class _HomePageState extends State<HomePage> {
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
 
@@ -213,14 +217,14 @@ class _HomePageState extends State<HomePage> {
                     Container(
                       height: 250,
                       width: 250,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         image: DecorationImage(
                             image: AssetImage('assets/images/empty_image.png'),
                             fit: BoxFit.cover,
                             opacity: 0.9),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     Text(
@@ -231,7 +235,7 @@ class _HomePageState extends State<HomePage> {
                         color: Theme.of(context).colorScheme.tertiary,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 10,
                     ),
                     Text(
@@ -240,10 +244,10 @@ class _HomePageState extends State<HomePage> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 14,
-                        color: Theme.of(context).colorScheme.tertiaryContainer,
+                        color: Theme.of(context).colorScheme.tertiary,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 50,
                     ),
                   ],

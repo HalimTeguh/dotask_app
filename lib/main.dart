@@ -11,7 +11,7 @@ void main() async {
 
   runApp(ChangeNotifierProvider(
     create: (context) => TaskDatabase(),
-    child: MyApp(),
+    child: const MyApp(),
   ));
 }
 
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: const HomePage(),
       debugShowCheckedModeBanner: false,
       theme: lightTheme,
       darkTheme: darkTheme,

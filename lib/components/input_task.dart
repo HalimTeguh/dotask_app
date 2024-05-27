@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class InputTask extends StatefulWidget {
-  InputTask({
+  const InputTask({
     super.key,
     required this.taskController,
     required this.addTask,
@@ -25,7 +25,7 @@ class _InputTaskState extends State<InputTask> {
       height: 180,
       decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surfaceContainer,
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
                 color: Colors.black12, offset: Offset(0, -2), blurRadius: 5)
           ]),
@@ -44,7 +44,7 @@ class _InputTaskState extends State<InputTask> {
                         onPressed: () {
                           widget.taskController.clear();
                         },
-                        icon: Icon(Icons.cancel_outlined))
+                        icon: const Icon(Icons.cancel_outlined))
                     : null,
                 suffixIconColor: Theme.of(context).colorScheme.primary,
                 focusColor: Theme.of(context).colorScheme.secondary,
@@ -64,12 +64,12 @@ class _InputTaskState extends State<InputTask> {
               ),
             ),
 
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
 
             // Button for SUBMIT NEW TASK
-            Container(
+            SizedBox(
               width: double.infinity,
               child: TextButton(
                 onPressed: widget.addTask,
@@ -83,11 +83,11 @@ class _InputTaskState extends State<InputTask> {
                       widget.dataIsNotEmpty ? Theme.of(context).colorScheme.primary : Theme.of(context).colorScheme.tertiaryContainer ),
                   foregroundColor: MaterialStatePropertyAll(
                       Theme.of(context).colorScheme.surfaceContainer),
-                  overlayColor: MaterialStatePropertyAll(Colors.white24),
+                  overlayColor: const MaterialStatePropertyAll(Colors.white24),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 5.0),
-                  child: Text("Add Task"),
+                  child: Text("Add Task", style: TextStyle(fontSize: 14, color: Theme.of(context).colorScheme.onTertiary),),
                 ),
               ),
             )
