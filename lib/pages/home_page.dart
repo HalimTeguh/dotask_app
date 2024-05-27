@@ -44,6 +44,8 @@ class _HomePageState extends State<HomePage> {
   // update task
   void updateTask(int id, String newTask, bool newStatus) {
     context.read<TaskDatabase>().updateTask(id, newTask, newStatus);
+            FocusScope.of(context).unfocus();
+
 
     readTask();
   }
@@ -57,10 +59,15 @@ class _HomePageState extends State<HomePage> {
         return DeleteDialog(
           title: "Wait a second broo..",
           subtitle: "u wanna delete this Tasks?",
-          cancel: () => Navigator.of(context).pop(),
+          cancel: () {
+            Navigator.of(context).pop();
+            FocusScope.of(context).unfocus();
+          },
           accept: () {
             Navigator.of(context).pop();
             context.read<TaskDatabase>().deleteTask(id);
+            FocusScope.of(context).unfocus();
+
             readTask();
           },
         );
@@ -70,18 +77,21 @@ class _HomePageState extends State<HomePage> {
 
   // delete all task
   void deleteAllTask() {
-    FocusScope.of(context).unfocus();
-
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return DeleteDialog(
           title: "Calm down broow...",
           subtitle: "u wanna delete all our Tasks?",
-          cancel: () => Navigator.of(context).pop(),
+          cancel: () {
+            Navigator.of(context).pop();
+            FocusScope.of(context).unfocus();
+          },
           accept: () {
             Navigator.of(context).pop();
             context.read<TaskDatabase>().deleteAllTask();
+            FocusScope.of(context).unfocus();
+
             readTask();
           },
         );
