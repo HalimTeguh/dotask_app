@@ -1,6 +1,17 @@
 # dotask_app
 
-A new Flutter project.
+This Project is an exercise in creating basic projects using Flutter.
+This project uses several packages, including:
+
+- GoogleFont
+- State Management (Provider)
+- isar (local database)
+
+
+## Preview Project
+![image](/assets/preview1.png)
+![image](/assets/preview2.png)
+![image](/assets/preview3.png)
 
 ## Getting Started
 
