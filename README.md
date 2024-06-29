@@ -9,9 +9,9 @@ This project uses several packages, including:
 
 
 ## Preview Project
-![image](/assets/preview1.png)
-![image](/assets/preview2.png)
-![image](/assets/preview3.png)
+![image](/assets/images/preview1.png)
+![image](/assets/images/preview2.png)
+![image](/assets/images/preview3.png)
 
 ## Getting Started
 
